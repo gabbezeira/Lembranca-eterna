@@ -30,7 +30,7 @@ export const Container = styled.div`
     .mediaItem {
       width: 100%;
       height: 100%;
-      aspect-ratio: 1; /* Keeps items square and responsive */
+      aspect-ratio: 1; 
       border-radius: 0.5rem;
       overflow: hidden;
       cursor: pointer;
@@ -42,7 +42,6 @@ export const Container = styled.div`
 
       &:hover {
         transform: scale(1.04);
-        z-index: 10;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       }
 
