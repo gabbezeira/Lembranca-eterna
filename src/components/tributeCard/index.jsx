@@ -11,9 +11,8 @@ export const TributeCard = ({
 	onReject,
 	onDelete,
 }) => {
-	const avatarColors = ['#d62a44', '#129cca', '#90EE90', '#dbd031', '#e342e3']
+	const avatarColors = ['#d62a44', '#129cca', '#90EE90', '#dbd031', '#e342e3', '#7209aaff', '#0939aaff', '#ae7209ff']
 
-	// Use saved color from DB, or fallback to random for legacy tributes
 	const getColor = () => {
 		if (avatarColor) return avatarColor
 		return avatarColors[Math.floor(Math.random() * avatarColors.length)]
