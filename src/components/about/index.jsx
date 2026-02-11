@@ -11,7 +11,7 @@ export function About({ illustration }) {
 			<div className="textContent">
 				<h1 className="title">Sobre Nós</h1>
 				<p className="description">
-					A saudade é a prova de que o amor valeu a pena. Criamos este espaço para que as lembranças não se percam no tempo, mas encontrem um lar eterno. Aqui, transformamos o luto em homenagem e garantimos que as histórias, sorrisos e momentos de quem você ama continuem vivos, iluminando corações hoje e sempre.
+					saudade é a prova de que o amor valeu a pena. Criamos este espaço para transformar essa saudade em homenagem e dar um lar eterno às lembranças. Aqui, as histórias, fotos e sorrisos de quem você ama continuam vivos para sempre.
 				</p>
 			</div>
 		</Container>
