@@ -20,6 +20,8 @@ export const Container = styled.div`
     .span {
       font-weight: 600;
       color: var(--black-color);
+      text-decoration: none;
+      cursor: pointer;
     }
   }
   @media (max-width: 480px) {
