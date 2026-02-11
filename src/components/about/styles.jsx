@@ -40,7 +40,7 @@ gap: 3rem;
     font-size: 1rem;
     font-weight: 400;
     color: var(--white-color);}
-    line-height: 1.8;
+    line-height: 1.3;
 }
   @media (max-width: 1024px) {
     padding: 0rem 3rem;
