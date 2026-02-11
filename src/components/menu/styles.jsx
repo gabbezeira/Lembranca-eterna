@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   position: ${({ $position }) => $position || 'fixed'} !important;
-  z-index: 1;
+  z-index: 10000;
   background-color: var(--gray-white-color);
 
   height: 5.625rem;
