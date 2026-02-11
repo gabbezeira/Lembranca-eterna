@@ -64,6 +64,7 @@ export function PerfilPage() {
 			await api.post(`/memorials/${code}/tribute`, {
 				message: newTribute.message,
 				author_name: newTribute.name,
+				relationship: newTribute.relationship,
 			})
 			toast.success('Homenagem enviada para aprovação!')
 			closeTributeModal()
