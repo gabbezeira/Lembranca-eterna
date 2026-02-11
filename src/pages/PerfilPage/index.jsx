@@ -133,7 +133,7 @@ export function PerfilPage() {
 							<div key={tribute.id} className="items">
 								<TributeCard
 									name={tribute.author_name}
-									relationship={tribute.relationship || 'Visitante'} // API might not return relationship if not stored
+									relationship={tribute.relationship || 'Visitante'}
 									message={tribute.message}
 									avatarColor={tribute.avatar_color}
 								/>
