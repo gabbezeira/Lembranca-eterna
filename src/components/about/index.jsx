@@ -11,9 +11,7 @@ export function About({ illustration }) {
 			<div className="textContent">
 				<h1 className="title">Sobre Nós</h1>
 				<p className="description">
-					Lorem Ipsum is simply dummy text of the printing and typesetting
-					industry. Lorem Ipsum has been the industry's standard dummy text ever
-					since the 1500s. It has survived not only five centuries.
+					A saudade é a prova de que o amor valeu a pena. Criamos este espaço para que as lembranças não se percam no tempo, mas encontrem um lar eterno. Aqui, transformamos o luto em homenagem e garantimos que as histórias, sorrisos e momentos de quem você ama continuem vivos, iluminando corações hoje e sempre.
 				</p>
 			</div>
 		</Container>
