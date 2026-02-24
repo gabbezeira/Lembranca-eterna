@@ -7,11 +7,9 @@ export const AdminPageWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
+  height: auto;
+  min-height: 100dvh;
   
-  /* Desktop default: Fixed height like PageWrapper */
-  height: 100dvh;
-  
-  /* Mobile: Unlocked height like UnlockedPageWrapper */
   @media (max-width: 768px) {
     height: auto;
     min-height: 100dvh;
