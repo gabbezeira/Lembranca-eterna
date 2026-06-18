@@ -75,7 +75,7 @@ export function LoginForm({ title, linkTo }) {
 				</Button>
 			</form>
 			<a
-				href="https://wa.me/5534999999999"
+				href="https://wa.me/5534999750121?text=Vim%20pelo%20Lembran%C3%A7a%20Eterna%20e%20preciso%20de%20suporte"
 				target="_blank"
 				rel="noopener noreferrer"
 				className="helpLink"

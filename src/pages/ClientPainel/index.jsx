@@ -120,8 +120,8 @@ export function ClientPainel() {
 	}
 
 	const handleSupport = () => {
-		const message = 'Olá, preciso de ajuda com o Memorial.'
-		const phoneNumber = '5511999999999'
+		const message = 'Vim pelo Lembrança Eterna e preciso de suporte'
+		const phoneNumber = '5534999750121'
 		const link = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
 		window.open(link, '_blank')
 	}
