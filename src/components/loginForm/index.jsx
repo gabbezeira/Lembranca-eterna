@@ -17,7 +17,22 @@ export function LoginForm({ title, linkTo }) {
 		e.preventDefault()
 		setLoading(true)
 		try {
-			await login(email, password)
+			const userCredential = await login(email, password)
+			const tokenResult = await userCredential.user.getIdTokenResult()
+			const role = tokenResult.claims.role || 'FAMILY'
+
+			if (linkTo === '/adminPainel' && role !== 'ADMIN') {
+				toast.error('Acesso negado: Você não é um administrador.')
+				return
+			}
+			
+			if (!linkTo && role === 'ADMIN') {
+				// Admin logging in through family form
+				navigate('/adminPainel')
+				toast.success('Redirecionado para o painel de administrador.')
+				return
+			}
+
 			if (linkTo) {
 				navigate(linkTo)
 			} else {

@@ -171,6 +171,7 @@ export function AdminPainel() {
 					.toLowerCase()
 					.includes(debouncedSearchTerm.toLowerCase()) ||
 				user.email.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+				(user.deceasedName && user.deceasedName.toLowerCase().includes(debouncedSearchTerm.toLowerCase())) ||
 				(user.code && user.code.toString().includes(debouncedSearchTerm)),
 		)
 
