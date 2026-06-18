@@ -56,7 +56,7 @@ export function ClientPainel() {
 				setMemorialCode(code)
 				setResponsibleName(responsible || 'Visitante')
 				setDeceasedName(deceased_name || '')
-				
+
 				// format dates to YYYY-MM-DD for input
 				const formatForInput = (d) => {
 					if (!d) return ''
@@ -67,7 +67,7 @@ export function ClientPainel() {
 				}
 				setBirthDate(formatForInput(birth_date))
 				setDeathDate(formatForInput(death_date))
-				
+
 				setUserPlan(plan || 'free')
 			} catch (error) {
 				console.error('Erro ao buscar memorial:', error)
@@ -215,37 +215,37 @@ export function ClientPainel() {
 
 						<GridContainer>
 							<InputArea>
-								<label htmlFor="responsibleName">Responsável pela Conta</label>
 								<Input
 									type="text"
 									id="responsibleName"
+									placeholder="Responsável pela Conta"
 									value={responsibleName}
 									onChange={(e) => setResponsibleName(e.target.value)}
 								/>
 							</InputArea>
 							<InputArea>
-								<label htmlFor="deceasedName">Nome do Entes Querido</label>
 								<Input
 									type="text"
 									id="deceasedName"
+									placeholder="Nome do Ente Querido"
 									value={deceasedName}
 									onChange={(e) => setDeceasedName(e.target.value)}
 								/>
 							</InputArea>
 							<InputArea>
-								<label htmlFor="birthDate">Data de Nascimento</label>
 								<Input
 									type="date"
 									id="birthDate"
+									placeholder="Data de Nascimento"
 									value={birthDate}
 									onChange={(e) => setBirthDate(e.target.value)}
 								/>
 							</InputArea>
 							<InputArea>
-								<label htmlFor="deathDate">Data de Falecimento</label>
 								<Input
 									type="date"
 									id="deathDate"
+									placeholder="Data de Falecimento"
 									value={deathDate}
 									onChange={(e) => setDeathDate(e.target.value)}
 								/>
@@ -253,9 +253,9 @@ export function ClientPainel() {
 						</GridContainer>
 
 						<InputArea>
-							<label htmlFor="profileMessage">Mensagem do Perfil</label>
 							<textarea
 								id="profileMessage"
+								placeholder="Mensagem do Perfil"
 								value={profileMessage}
 								onChange={(e) => setProfileMessage(e.target.value)}
 								rows={6}
