@@ -68,8 +68,8 @@ export const MediaTab = ({ plan = 'free' }) => {
 		const file = e.target.files[0]
 		if (!file) return
 
-		if (type === 'VIDEO' && file.size > 50 * 1024 * 1024) {
-			toast.error('O vídeo deve ter no máximo 50MB.')
+		if (type === 'VIDEO' && file.size > 80 * 1024 * 1024) {
+			toast.error('O vídeo deve ter no máximo 80MB.')
 			return
 		}
 
