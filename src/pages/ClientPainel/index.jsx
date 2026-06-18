@@ -28,6 +28,8 @@ import {
 	UploadLabel,
 	LoadingWrapper,
 	HiddenInput,
+	Input,
+	GridContainer,
 } from './styles'
 
 export function ClientPainel() {
@@ -37,6 +39,9 @@ export function ClientPainel() {
 	const [loading, setLoading] = useState(true)
 	const [memorialCode, setMemorialCode] = useState(null)
 	const [responsibleName, setResponsibleName] = useState('')
+	const [deceasedName, setDeceasedName] = useState('')
+	const [birthDate, setBirthDate] = useState('')
+	const [deathDate, setDeathDate] = useState('')
 	const [userPlan, setUserPlan] = useState('free')
 
 	const { logout } = useAuth()
@@ -45,11 +50,24 @@ export function ClientPainel() {
 		const fetchMemorial = async () => {
 			try {
 				const response = await api.get('/family/me')
-				const { bio, profile_image_url, code, responsible, plan } = response.data
+				const { bio, profile_image_url, code, responsible, plan, deceased_name, birth_date, death_date } = response.data
 				setProfileMessage(bio || '')
 				setProfileImage(profile_image_url || null)
 				setMemorialCode(code)
 				setResponsibleName(responsible || 'Visitante')
+				setDeceasedName(deceased_name || '')
+				
+				// format dates to YYYY-MM-DD for input
+				const formatForInput = (d) => {
+					if (!d) return ''
+					if (/^\d{4}-\d{2}-\d{2}$/.test(d)) return d
+					const date = new Date(d)
+					if (isNaN(date.getTime())) return ''
+					return date.toISOString().split('T')[0]
+				}
+				setBirthDate(formatForInput(birth_date))
+				setDeathDate(formatForInput(death_date))
+				
 				setUserPlan(plan || 'free')
 			} catch (error) {
 				console.error('Erro ao buscar memorial:', error)
@@ -69,6 +87,10 @@ export function ClientPainel() {
 		try {
 			await api.put('/family/profile', {
 				bio: profileMessage,
+				responsible: responsibleName,
+				deceasedName,
+				birthDate,
+				deathDate,
 			})
 			toast.success('Informações atualizadas com sucesso!')
 		} catch (error) {
@@ -190,6 +212,45 @@ export function ClientPainel() {
 							</div>
 							<UploadLabel>Clique na foto para alterar</UploadLabel>
 						</PhotoUploadArea>
+
+						<GridContainer>
+							<InputArea>
+								<label htmlFor="responsibleName">Responsável pela Conta</label>
+								<Input
+									type="text"
+									id="responsibleName"
+									value={responsibleName}
+									onChange={(e) => setResponsibleName(e.target.value)}
+								/>
+							</InputArea>
+							<InputArea>
+								<label htmlFor="deceasedName">Nome do Entes Querido</label>
+								<Input
+									type="text"
+									id="deceasedName"
+									value={deceasedName}
+									onChange={(e) => setDeceasedName(e.target.value)}
+								/>
+							</InputArea>
+							<InputArea>
+								<label htmlFor="birthDate">Data de Nascimento</label>
+								<Input
+									type="date"
+									id="birthDate"
+									value={birthDate}
+									onChange={(e) => setBirthDate(e.target.value)}
+								/>
+							</InputArea>
+							<InputArea>
+								<label htmlFor="deathDate">Data de Falecimento</label>
+								<Input
+									type="date"
+									id="deathDate"
+									value={deathDate}
+									onChange={(e) => setDeathDate(e.target.value)}
+								/>
+							</InputArea>
+						</GridContainer>
 
 						<InputArea>
 							<label htmlFor="profileMessage">Mensagem do Perfil</label>

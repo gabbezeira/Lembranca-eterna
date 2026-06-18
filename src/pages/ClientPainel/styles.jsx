@@ -167,6 +167,35 @@ export const InputArea = styled.div`
   }
 `
 
+export const Input = styled.input`
+  width: 100%;
+  padding: 1rem;
+  border: 0.5px solid var(--stroke-color);
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: var(--black-color);
+  outline: none;
+  transition: border-color 0.2s;
+
+  &:focus {
+    border-color: var(--primary-color);
+  }
+`
+
+export const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+`
+
 export const MenuWrapper = styled.div`
   position: relative;
   width: 100%;
