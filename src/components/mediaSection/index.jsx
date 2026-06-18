@@ -10,7 +10,7 @@ export const MediaSection = ({ title, items = [] }) => {
 		<Container>
 			<div className="title">{title}</div>
 			<div className="mediaGrid">
-				{items.slice(0, 4).map((item, index) => (
+				{items.slice(0, 8).map((item, index) => (
 					<div
 						className="mediaItem"
 						key={index}
