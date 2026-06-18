@@ -12,6 +12,7 @@ import {
 	InputGroup,
 	Label,
 	ModalContainer,
+	ModalHeader,
 	Overlay,
 	SectionTitle,
 	Subtitle,
