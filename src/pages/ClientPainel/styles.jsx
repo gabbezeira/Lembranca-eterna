@@ -175,8 +175,10 @@ export const Input = styled.input`
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   color: var(--black-color);
+  background-color: var(--white-color, #ffffff);
   outline: none;
   transition: border-color 0.2s;
+  box-sizing: border-box;
 
   &:focus {
     border-color: var(--primary-color);
@@ -184,15 +186,24 @@ export const Input = styled.input`
 `
 
 export const GridContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
   width: 100%;
   margin-bottom: 1.5rem;
 
+  & > div {
+    flex: 1 1 calc(50% - 0.75rem);
+    min-width: 250px;
+  }
+
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 1rem;
+    
+    & > div {
+      flex: 1 1 100%;
+    }
   }
 `
 
