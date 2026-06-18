@@ -117,29 +117,39 @@ min-height: 100dvh;
 
   /* Mobile */
   @media (max-width: 480px) {
-    height: 100dvh; /* Enforce viewport height */
-    overflow: hidden; /* Disable scroll */
+    height: auto;
+    min-height: 100dvh;
 
     .homeMenu {
        padding: 0 1.5rem !important;
     }
 
     .leftContent {
-       height: 55%; /* Increased to 55% */
+       height: auto; 
        min-height: auto;
-       padding-bottom: 0;
-       justify-content: flex-end;
-       padding-bottom: 2rem;
+       padding-top: 6rem;
+       padding-bottom: 3rem;
+       justify-content: center;
+       
+       /* Ocultar texto da ilustração apenas na Home no mobile */
+       .textContent {
+         display: none !important;
+       }
     }
     
     .rightContent {
-      height: 45%; /* Reduced to 45% as requested */
-      flex: none;
+      height: auto; 
+      min-height: 50vh;
+      flex: 1;
       border-radius: 1.5rem 1.5rem 0 0;
-      padding-top: 1.5rem; /* Slight adjustment */
+      padding-top: 2rem; 
+      margin-top: -1.5rem;
+      padding-bottom: 2rem;
+      justify-content: space-between;
       
       .searchArea {
         padding: 0 1.5rem;
+        margin-bottom: 2rem;
       }
     }
   }

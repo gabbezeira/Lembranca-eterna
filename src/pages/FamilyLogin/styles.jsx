@@ -55,27 +55,23 @@ min-height: 100dvh;
   /* Tablet */
   @media (max-width: 768px) {
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     
     .leftContent {
-      display: flex;
-      width: 100%;
-      min-height: 50vh;
-      height: auto;
-      background-color: var(--primary-color);
-      padding: 4rem 2rem;
+      display: none;
     }
 
     .rightContent {
       width: 100%;
       flex: 1;
       background-color: var(--white-color);
-      border-radius: 2rem 2rem 0 0;
-      margin-top: -2rem;
-      padding-top: 3rem;
+      border-radius: 0;
+      margin-top: 0;
+      padding-top: 0;
+      justify-content: center;
   
       .formArea {
-        align-items: flex-start;
+        align-items: center;
         padding: 0rem 4rem;
       }
     }
@@ -84,22 +80,17 @@ min-height: 100dvh;
   /* Mobile */
   @media (max-width: 480px) {
     height: 100dvh;
-    overflow: hidden;
 
     .leftContent {
-      display: flex; /* Show it! */
-      height: 52%; /* Reduced slightly to give form more room */
-      min-height: auto;
-      padding-bottom: 1rem;
-      justify-content: flex-end;
-      padding-top: 0;
+      display: none; 
     }
 
     .rightContent {
-      height: 48%; /* Increased for form */
-      flex: none;
-      border-radius: 1.5rem 1.5rem 0 0;
-      padding-top: 1.25rem; /* Less padding to push content up */
+      height: 100dvh; 
+      flex: 1;
+      border-radius: 0;
+      padding-top: 0;
+      justify-content: center;
       
       .formArea {
         padding: 0 1.5rem;
