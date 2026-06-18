@@ -239,6 +239,13 @@ export function AdminPainel() {
 		}
 	}
 
+	const handleSupport = () => {
+		const message = 'Vim pelo Lembrança Eterna e preciso de suporte'
+		const phoneNumber = '5534999750121'
+		const link = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+		window.open(link, '_blank')
+	}
+
 	return (
 		<AdminPageWrapper>
 			<Menu
@@ -246,6 +253,7 @@ export function AdminPainel() {
 				onCreateUser={handleOpenCreateUserModal}
 				position="relative"
 				onLogout={handleLogout}
+				onSupport={handleSupport}
 			/>
 			<Container>
 				<SearchContainer>

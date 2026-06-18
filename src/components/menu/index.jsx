@@ -63,6 +63,15 @@ export const Menu = ({
 						variant="outline"
 						fontWeight="500"
 						fontSize="0.875rem"
+						onClick={onSupport}
+					>
+						<HelpCircle className="buttonIcon" />
+						<span className="buttonText">Suporte</span>
+					</Button>
+					<Button
+						variant="outline"
+						fontWeight="500"
+						fontSize="0.875rem"
 						onClick={onLogout}
 					>
 						<LogOut className="buttonIcon" />
