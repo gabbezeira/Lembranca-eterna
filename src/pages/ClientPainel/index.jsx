@@ -37,6 +37,7 @@ export function ClientPainel() {
 	const [loading, setLoading] = useState(true)
 	const [memorialCode, setMemorialCode] = useState(null)
 	const [responsibleName, setResponsibleName] = useState('')
+	const [userPlan, setUserPlan] = useState('free')
 
 	const { logout } = useAuth()
 
@@ -44,11 +45,12 @@ export function ClientPainel() {
 		const fetchMemorial = async () => {
 			try {
 				const response = await api.get('/family/me')
-				const { bio, profile_image_url, code, responsible } = response.data
+				const { bio, profile_image_url, code, responsible, plan } = response.data
 				setProfileMessage(bio || '')
 				setProfileImage(profile_image_url || null)
 				setMemorialCode(code)
 				setResponsibleName(responsible || 'Visitante')
+				setUserPlan(plan || 'free')
 			} catch (error) {
 				console.error('Erro ao buscar memorial:', error)
 				toast.error('Erro ao carregar informações do perfil.')
@@ -214,7 +216,7 @@ export function ClientPainel() {
 
 				{activeTab === 'media' && (
 					<FormSection>
-						<MediaTab />
+						<MediaTab plan={userPlan} />
 					</FormSection>
 				)}
 

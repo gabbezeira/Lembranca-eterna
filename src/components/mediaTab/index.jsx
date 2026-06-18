@@ -19,7 +19,7 @@ import {
 	UploadingPlaceholder,
 } from './styles'
 
-export const MediaTab = () => {
+export const MediaTab = ({ plan = 'free' }) => {
 	const [mediaList, setMediaList] = useState([])
 	const [loading, setLoading] = useState(true)
 	const [uploadingType, setUploadingType] = useState(null)
@@ -45,8 +45,8 @@ export const MediaTab = () => {
 	const photos = mediaList.filter((m) => m.type === 'PHOTO')
 	const videos = mediaList.filter((m) => m.type === 'VIDEO')
 
-	const MAX_PHOTOS = 4
-	const MAX_VIDEOS = 4
+	const MAX_PHOTOS = plan === 'premium' ? 8 : 4
+	const MAX_VIDEOS = plan === 'premium' ? 8 : 4
 
 	const handleFileSelect = (type) => {
 		if (type === 'PHOTO') {
