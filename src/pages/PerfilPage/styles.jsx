@@ -114,3 +114,36 @@ export const TributesHeader = styled.div`
     }
   }
 `
+
+export const BlockedOverlay = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--card-white-color, rgba(255, 255, 255, 0.95));
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  z-index: 100;
+  max-width: 90%;
+  width: 500px;
+  border: 1px solid var(--stroke-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  p {
+    color: var(--black-color);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+`

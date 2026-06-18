@@ -180,6 +180,11 @@ export function AdminPainel() {
 					user.deceasedName === 'Atualize o Cadastro' ||
 					user.name === 'Atualize o Cadastro',
 			)
+		} else if (filterStatus === 'expired') {
+			const todayStr = new Date().toISOString().split('T')[0]
+			result = result.filter(
+				(user) => user.plan === 'premium' && user.validUntil && user.validUntil < todayStr
+			)
 		}
 
 		if (filterPlan !== 'all') {

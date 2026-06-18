@@ -16,7 +16,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import api from '../../services/api'
-import { Container, TributesHeader } from './styles'
+import { Container, TributesHeader, BlockedOverlay } from './styles'
 
 export function PerfilPage() {
 	const { code } = useParams()
@@ -100,15 +100,17 @@ export function PerfilPage() {
 		return <MemorialNotFound />
 	}
 
+	const isBlocked = memorial.isBlocked
+
 	return (
-		<UnlockedPageWrapper>
+		<UnlockedPageWrapper style={{ position: 'relative' }}>
 			<Menu
 				padding="0rem 10rem"
-				$showButton="flex"
+				$showButton={isBlocked ? "none" : "flex"}
 				onAddTribute={openTributeModal}
 				position="fixed"
 			/>
-			<Container>
+			<Container style={isBlocked ? { filter: 'blur(8px)', pointerEvents: 'none', userSelect: 'none' } : {}}>
 				<PerfilCard
 					name={memorial.deceased_name}
 					bio={memorial.bio}
@@ -156,6 +158,12 @@ export function PerfilPage() {
 					</div>
 				</div>
 			</Container>
+			{isBlocked && (
+				<BlockedOverlay>
+					<h2>Perfil Bloqueado</h2>
+					<p>Este perfil está temporariamente indisponível devido ao vencimento do plano premium.</p>
+				</BlockedOverlay>
+			)}
 			<Footer />
 			<TributeModal
 				isOpen={isModalOpen}

@@ -22,6 +22,7 @@ export const AdminFilters = ({
 				>
 					<option value="all">Status: Todos</option>
 					<option value="incomplete">Status: Incompletos</option>
+					<option value="expired">Status: Expirados</option>
 				</Select>
 			</FilterGroup>
 
