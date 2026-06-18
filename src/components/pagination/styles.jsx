@@ -46,3 +46,14 @@ export const NavButton = styled(PageButton)`
   padding: 0 0.75rem;
   gap: 0.25rem;
 `
+
+export const Ellipsis = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: var(--black-color);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem;
+`
