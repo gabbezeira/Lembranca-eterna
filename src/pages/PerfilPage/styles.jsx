@@ -122,28 +122,42 @@ export const BlockedOverlay = styled.div`
   transform: translate(-50%, -50%);
   background-color: var(--card-white-color, rgba(255, 255, 255, 0.95));
   padding: 3rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
   text-align: center;
   z-index: 100;
   max-width: 90%;
-  width: 500px;
+  width: 480px;
   border: 1px solid var(--stroke-color);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1.5rem;
+
+  .icon-container {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: rgba(225, 29, 72, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e11d48;
+  }
 
   h2 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+    color: var(--black-color);
     font-size: 1.5rem;
     font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin: 0;
   }
 
   p {
-    color: var(--black-color);
+    color: var(--gray-color);
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.6;
+    margin: 0;
   }
 `

@@ -11,7 +11,7 @@ import {
 	Button,
 } from '@components'
 import { UnlockedPageWrapper } from '@globalStylesJSX'
-import { Plus } from 'lucide-react'
+import { Plus, Lock } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -58,6 +58,13 @@ export function PerfilPage() {
 
 	const openTributeModal = () => setIsModalOpen(true)
 	const closeTributeModal = () => setIsModalOpen(false)
+
+	const handleSupport = () => {
+		const message = 'Olá, meu plano premium expirou e gostaria de suporte para liberar a conta do memorial.'
+		const phoneNumber = '5534999750121'
+		const link = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+		window.open(link, '_blank')
+	}
 
 	const handleAddTribute = async (newTribute) => {
 		try {
@@ -160,8 +167,16 @@ export function PerfilPage() {
 			</Container>
 			{isBlocked && (
 				<BlockedOverlay>
-					<h2>Perfil Bloqueado</h2>
-					<p>Este perfil está temporariamente indisponível devido ao vencimento do plano premium.</p>
+					<div className="icon-container">
+						<Lock size={32} />
+					</div>
+					<h2>Perfil Temporariamente Indisponível</h2>
+					<p>
+						O plano premium deste memorial encontra-se vencido. Para restaurar o acesso e manter as homenagens ativas, por favor, entre em contato para liberar a conta.
+					</p>
+					<Button onClick={handleSupport} variant="primary" width="100%">
+						Entrar em Contato com o Suporte
+					</Button>
 				</BlockedOverlay>
 			)}
 			<Footer />
