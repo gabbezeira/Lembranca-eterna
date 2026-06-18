@@ -1,5 +1,6 @@
 import { Edit, Link2, Trash2 } from 'lucide-react'
 import { Container } from './styles'
+import { formatDateForDisplay } from '../../utils/masks'
 
 export function UserCard({ userData, onLink, onEdit, onDelete }) {
 	const defaultData = {
@@ -27,6 +28,14 @@ export function UserCard({ userData, onLink, onEdit, onDelete }) {
 		{
 			itemLabel: 'Código:',
 			itemData: data.code || 'N/A',
+		},
+		{
+			itemLabel: 'Plano:',
+			itemData: data.plan === 'premium' ? 'Premium' : 'Free',
+		},
+		{
+			itemLabel: 'Validade:',
+			itemData: data.validUntil ? formatDateForDisplay(data.validUntil) : '-',
 		},
 	]
 

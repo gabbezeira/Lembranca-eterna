@@ -76,3 +76,16 @@ export const Select = styled.select`
   cursor: pointer;
   appearance: none;
 `
+
+export const Input = styled.input`
+  width: 100%;
+  height: 100%;
+  min-height: 48px;
+  padding: 0 0.75rem 0 2.25rem;
+  border: none;
+  background-color: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-color);
+  outline: none;
+`

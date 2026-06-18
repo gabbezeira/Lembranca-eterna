@@ -33,6 +33,8 @@ export function AdminPainel() {
 	const [searchTerm, setSearchTerm] = useState('')
 	const [currentPage, setCurrentPage] = useState(1)
 	const [filterStatus, setFilterStatus] = useState('all')
+	const [filterPlan, setFilterPlan] = useState('all')
+	const [filterDate, setFilterDate] = useState('')
 	const [sortBy, setSortBy] = useState('newest')
 	const itemsPerPage = 5
 
@@ -180,6 +182,18 @@ export function AdminPainel() {
 			)
 		}
 
+		if (filterPlan !== 'all') {
+			result = result.filter((user) => user.plan === filterPlan)
+		}
+
+		if (filterDate) {
+			result = result.filter((user) => {
+				if (!user.validUntil) return false;
+				// user.validUntil format is usually YYYY-MM-DD
+				return user.validUntil.startsWith(filterDate);
+			})
+		}
+
 		result.sort((a, b) => {
 			if (sortBy === 'newest') {
 				return new Date(b.created_at || 0) - new Date(a.created_at || 0)
@@ -201,11 +215,11 @@ export function AdminPainel() {
 		})
 
 		return result
-	}, [users, debouncedSearchTerm, filterStatus, sortBy])
+	}, [users, debouncedSearchTerm, filterStatus, sortBy, filterPlan, filterDate])
 
 	useEffect(() => {
 		setCurrentPage(1)
-	}, [filterStatus, sortBy, debouncedSearchTerm])
+	}, [filterStatus, sortBy, debouncedSearchTerm, filterPlan, filterDate])
 
 	const totalPages = Math.ceil(filteredUsers.length / itemsPerPage)
 	const currentUsers = filteredUsers.slice(
@@ -250,6 +264,10 @@ export function AdminPainel() {
 						setFilterStatus={setFilterStatus}
 						sortBy={sortBy}
 						setSortBy={setSortBy}
+						filterPlan={filterPlan}
+						setFilterPlan={setFilterPlan}
+						filterDate={filterDate}
+						setFilterDate={setFilterDate}
 					/>
 				</SearchContainer>
 

@@ -12,11 +12,11 @@ import {
 	InputGroup,
 	Label,
 	ModalContainer,
-	ModalHeader,
 	Overlay,
 	SectionTitle,
 	Subtitle,
 	Title,
+	Select,
 } from './styles'
 
 export const CreateUserModal = ({ isOpen, onClose, user, onSubmit }) => {
@@ -28,6 +28,8 @@ export const CreateUserModal = ({ isOpen, onClose, user, onSubmit }) => {
 		deceasedName: '',
 		birthDate: '',
 		deathDate: '',
+		plan: 'free',
+		validUntil: '',
 	})
 
 	useEffect(() => {
@@ -40,6 +42,8 @@ export const CreateUserModal = ({ isOpen, onClose, user, onSubmit }) => {
 				deceasedName: user.deceasedName || '',
 				birthDate: formatDateForInput(user.birthDate || ''),
 				deathDate: formatDateForInput(user.deathDate || ''),
+				plan: user.plan || 'free',
+				validUntil: formatDateForInput(user.validUntil || ''),
 			})
 		} else {
 			setFormData({
@@ -50,6 +54,8 @@ export const CreateUserModal = ({ isOpen, onClose, user, onSubmit }) => {
 				deceasedName: '',
 				birthDate: '',
 				deathDate: '',
+				plan: 'free',
+				validUntil: '',
 			})
 		}
 	}, [user, isOpen])
@@ -146,6 +152,31 @@ export const CreateUserModal = ({ isOpen, onClose, user, onSubmit }) => {
 								required
 								value={formData.email}
 								onChange={handleChange}
+							/>
+						</InputGroup>
+					</GridContainer>
+
+					<GridContainer>
+						<InputGroup>
+							<Label htmlFor="plan">Plano</Label>
+							<Select
+								id="plan"
+								value={formData.plan}
+								onChange={handleChange}
+							>
+								<option value="free">Free (4 Fotos, 4 Vídeos)</option>
+								<option value="premium">Premium (8 Fotos, 8 Vídeos)</option>
+							</Select>
+						</InputGroup>
+						<InputGroup>
+							<Label htmlFor="validUntil">Data de Validade</Label>
+							<Input
+								type="date"
+								id="validUntil"
+								value={formData.validUntil}
+								onChange={handleChange}
+								disabled={formData.plan === 'free'}
+								required={formData.plan === 'premium'}
 							/>
 						</InputGroup>
 					</GridContainer>

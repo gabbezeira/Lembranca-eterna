@@ -126,6 +126,22 @@ export const Input = styled.input`
   }
 `
 
+export const Select = styled.select`
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 0.5px solid var(--stroke-color);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  background-color: white;
+  transition: border-color 0.2s;
+
+  &:focus {
+    border-color: var(--primary-color);
+  }
+`
+
 export const DeceasedSection = styled.div`
   background-color: var(--white-text-color);
   border-radius: 8px;
